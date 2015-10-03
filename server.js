@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 
 //  ------- PUBLIC MODULE ------- 
 /**
-Buffer Server
+Server
 responsible for setting up and running an express server
 */
 var Server = function() {
