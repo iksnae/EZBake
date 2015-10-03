@@ -1,15 +1,14 @@
 //  ------- PRIVATE PROPERTIES ------
 /**
 Private Module Level Properties
-- app: module level reference to the BufferServer oject
-- buffer: module level ClaimBuffer object
+- app: module level reference to the Server oject
 */
 var app;
 
 /**
 Configure Routes
 dynamically sets up the routing for the app
-loads configuration for endpoints from "endpoints.json"
+loads configuration from provided endpoints
 */
 function configureRoutes(endpoints){
   var endpoints = endpoints["endpoints"];
@@ -40,6 +39,14 @@ function bindHandler(method, path, handler){
   }else if(method === "post"){
     app.post(path, require(process.cwd()+handler));
     console.log("route POST hander\t",path,"=>",handler+"()");
+  }else if(method === "put"){
+    app.post(path, require(process.cwd()+handler));
+    console.log("route PUT hander\t",path,"=>",handler+"()");
+  }else if(method === "delete"){
+    app.post(path, require(process.cwd()+handler));
+    console.log("route DELETE hander\t",path,"=>",handler+"()");
+  }else{
+    console.log("routing failed: unknown HTTP Method:"+method);
   }
 }
 
