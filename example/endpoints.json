@@ -1,0 +1,18 @@
+{
+    "endpoints": [
+        {
+            "path": "/",
+            "methods": [
+                "get"
+            ],
+            "handler": "/handlers/root"
+        },
+        {
+            "path": "/cooper",
+            "methods": [
+                "get"
+            ],
+            "handler": "/handlers/root"
+        }
+    ]
+}
