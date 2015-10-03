@@ -8,11 +8,11 @@
             "handler": "/handlers/root"
         },
         {
-            "path": "/cooper",
+            "path": "/hey/:yourname",
             "methods": [
                 "get"
             ],
-            "handler": "/handlers/root"
+            "handler": "/handlers/hey"
         }
     ]
 }
