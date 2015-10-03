@@ -9,7 +9,9 @@ var EZBake = function(){
   self.startServer = function(){
     console.log("running service");
     app.listen(self.port, self.ipaddress, function() {
-      console.log('%s: service started on %s:%d ...', Date(Date.now() ), self.ipaddress, self.port);
+      var url = self.ipaddress || "http://localhost:";
+      var now = new Date()
+      console.log("server started on %s:%d, " + now + "\t@ " + url + ":" + self.port);
     });
   }
 
