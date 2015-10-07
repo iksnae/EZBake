@@ -11,6 +11,7 @@ dynamically sets up the routing for the app
 loads configuration from provided endpoints
 */
 function configureRoutes(endpoints){
+  console.log("EZBake: adding ingredients");
   var endpoints = endpoints["endpoints"];
   for(var i=0; i<endpoints.length; i++){
     var entry = endpoints[i];
@@ -35,18 +36,18 @@ a helper method that binds a handler to a method and path
 function bindHandler(method, path, handler){
   if(method === "get") {
     app.get(path, require(process.cwd()+handler));
-    console.log("route GET handler\t",path,"=>",handler+"()");
+    console.log("EZBake: route GET handler\t",path,"=>",handler+"()");
   }else if(method === "post"){
     app.post(path, require(process.cwd()+handler));
-    console.log("route POST hander\t",path,"=>",handler+"()");
+    console.log("EZBake: route POST hander\t",path,"=>",handler+"()");
   }else if(method === "put"){
     app.post(path, require(process.cwd()+handler));
-    console.log("route PUT hander\t",path,"=>",handler+"()");
+    console.log("EZBake: route PUT hander\t",path,"=>",handler+"()");
   }else if(method === "delete"){
     app.post(path, require(process.cwd()+handler));
-    console.log("route DELETE hander\t",path,"=>",handler+"()");
+    console.log("EZBake: route DELETE hander\t",path,"=>",handler+"()");
   }else{
-    console.log("routing failed: unknown HTTP Method:"+method);
+    console.log("EZBake: routing failed: unknown HTTP Method:"+method);
   }
 }
 

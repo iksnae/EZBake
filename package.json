@@ -1,6 +1,6 @@
 {
   "name": "ezbake",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "simplifies building a web service",
   "main": "index.js",
   "scripts": {
