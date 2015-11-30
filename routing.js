@@ -41,10 +41,10 @@ function bindHandler(method, path, handler){
     app.post(path, require(process.cwd()+handler));
     console.log("EZBake: route POST hander\t",path,"=>",handler+"()");
   }else if(method === "put"){
-    app.post(path, require(process.cwd()+handler));
+    app.put(path, require(process.cwd()+handler));
     console.log("EZBake: route PUT hander\t",path,"=>",handler+"()");
   }else if(method === "delete"){
-    app.post(path, require(process.cwd()+handler));
+    app.delete(path, require(process.cwd()+handler));
     console.log("EZBake: route DELETE hander\t",path,"=>",handler+"()");
   }else{
     console.log("EZBake: routing failed: unknown HTTP Method:"+method);
