@@ -4,23 +4,26 @@ Private Module Level Properties
 - app: module level reference to the Server oject
 */
 var app;
-
+var admin_users;
 /**
 Configure Routes
 dynamically sets up the routing for the app
 loads configuration from provided endpoints
 */
-function configureRoutes(endpoints){
+function configureRoutes(endpoints, users){
   console.log("EZBake: adding ingredients");
   var endpoints = endpoints["endpoints"];
+
   for(var i=0; i<endpoints.length; i++){
     var entry = endpoints[i];
     var path = entry["path"];
     var methods = entry["methods"];
     var handler = entry["handler"];
+    var isProtected = entry["protected"] || false;
+
     for (var j=0;j<methods.length; j++) {
       var method = methods[j];
-      bindHandler(method, path, handler)
+      bindHandler(method, path, isProtected, handler)
     }
 
   }
@@ -33,26 +36,53 @@ a helper method that binds a handler to a method and path
 - paths: root ur path
 - handler: the name of the handler
 */
-function bindHandler(method, path, handler){
+function bindHandler(method, path, isProtected, handler){
+
+  var check = isProtected ? admin_check : skip_check;
+
   if(method === "get") {
-    app.get(path, require(process.cwd()+handler));
-    console.log("EZBake: route GET handler\t",path,"=>",handler+"()");
+    app.get(path, check, require(process.cwd()+handler));
+    console.log("EZBake: route GET handler\t",path,"=>",handler+"() protected:",isProtected);
   }else if(method === "post"){
-    app.post(path, require(process.cwd()+handler));
-    console.log("EZBake: route POST hander\t",path,"=>",handler+"()");
+    app.post(path, check, require(process.cwd()+handler));
+    console.log("EZBake: route POST hander\t",path,"=>",handler+"() protected:",isProtected);
   }else if(method === "put"){
-    app.put(path, require(process.cwd()+handler));
-    console.log("EZBake: route PUT hander\t",path,"=>",handler+"()");
+    app.put(path, check, require(process.cwd()+handler));
+    console.log("EZBake: route PUT hander\t",path,"=>",handler+"() protected:",isProtected);
   }else if(method === "delete"){
-    app.delete(path, require(process.cwd()+handler));
-    console.log("EZBake: route DELETE hander\t",path,"=>",handler+"()");
+    app.delete(path, check, require(process.cwd()+handler));
+    console.log("EZBake: route DELETE hander\t",path,"=>",handler+"() protected:",isProtected);
   }else{
     console.log("EZBake: routing failed: unknown HTTP Method:"+method);
   }
 }
+function skip_check(req, res, next){
+  next();
+}
+function admin_check(req, res, next) {
+  console.log(admin_users);
+  var user = req.headers.user;
+  var token = req.headers.token;
+  if( token && user){
+    var authenticated_user = admin_users[user];
+    if(authenticated_user){
+      if(authenticated_user.token === token){
+        next();
+      }else{
+        res.sendStatus(401);
+      }
+    } else {
+      res.sendStatus(401);
+    }
+  }else{
+    res.sendStatus(401);
+  }
+}
+
 
 //  ------- PUBLIC MODULE ------- 
-module.exports = function(a, endpoints) {
+module.exports = function(a, endpoints, users) {
   app = a
+  admin_users = users;
   configureRoutes(endpoints);
 }
