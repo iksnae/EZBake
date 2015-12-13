@@ -1,19 +1,49 @@
 {
   "name": "ezbake",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "simplifies building a web service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/iksnae/EZBake.git"
   },
-  "author": "k",
+  "author": {
+    "name": "k"
+  },
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "express": "^4.13.3"
-  }
+    "body-parser": "*",
+    "express": "*"
+  },
+  "gitHead": "e254f26412218a92bc90a764f691e0c589eb1045",
+  "bugs": {
+    "url": "https://github.com/iksnae/EZBake/issues"
+  },
+  "homepage": "https://github.com/iksnae/EZBake#readme",
+  "_id": "ezbake@0.0.3",
+  "_shasum": "60fffe8a5e004ee1f830c8c0c3c246f83ce03f37",
+  "_from": "ezbake@*",
+  "_npmVersion": "2.9.0",
+  "_nodeVersion": "4.1.1",
+  "_npmUser": {
+    "name": "iksnae",
+    "email": "mustkre8@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "iksnae",
+      "email": "mustkre8@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "60fffe8a5e004ee1f830c8c0c3c246f83ce03f37",
+    "tarball": "http://registry.npmjs.org/ezbake/-/ezbake-0.0.3.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/ezbake/-/ezbake-0.0.3.tgz",
+  "readme": "ERROR: No README data found!"
 }
