@@ -4,8 +4,9 @@
   "description": "simplifies building a web service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "mocha",
+    "start": "node server.js",
+    "preinstall": "npm install -g istanbul mocha"
   },
   "repository": {
     "type": "git",
@@ -45,5 +46,13 @@
   },
   "directories": {},
   "_resolved": "https://registry.npmjs.org/ezbake/-/ezbake-0.0.3.tgz",
-  "readme": "ERROR: No README data found!"
+  "readme": "ERROR: No README data found!",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.3.4",
+    "rewire": "^2.5.1",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0"
+  }
 }
