@@ -1,6 +1,7 @@
 # EZBake
 
 [![npm version](https://badge.fury.io/js/ezbake.svg)](https://badge.fury.io/js/ezbake)
+![status.png](https://magnum-ci.com/status/609f9152d8b9fb53a2bdc2eb780a3634.png)
 
 simplifies building a service
 
