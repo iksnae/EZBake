@@ -86,3 +86,4 @@ module.exports = function(a, endpoints, users) {
   admin_users = users;
   configureRoutes(endpoints);
 }
+module.exports.configureRoutes = configureRoutes;
