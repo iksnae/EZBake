@@ -1,5 +1,7 @@
 # EZBake
+
 [![npm version](https://badge.fury.io/js/ezbake.svg)](https://badge.fury.io/js/ezbake)
+
 simplifies building a service
 
 Built atop express.js, EZBake provides a convenient approach to building webservices. 
