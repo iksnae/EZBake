@@ -5,6 +5,8 @@ Private Module Level Properties
 */
 var app;
 var admin_users;
+var pkg = require('../package');
+
 /**
 Configure Routes
 dynamically sets up the routing for the app
@@ -27,6 +29,11 @@ function configureRoutes(endpoints, users){
     }
 
   }
+
+  app.get("/info", false,function (req,res) {
+    // var i = {'version'};
+    res.send(pkg);
+  });
 }
 
 /**
@@ -80,7 +87,7 @@ function admin_check(req, res, next) {
 }
 
 
-//  ------- PUBLIC MODULE ------- 
+//  ------- PUBLIC MODULE -------
 module.exports = function(a, endpoints, users) {
   app = a
   admin_users = users;
