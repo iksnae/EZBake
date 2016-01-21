@@ -5,7 +5,7 @@ Private Module Level Properties
 */
 var app;
 var admin_users;
-var pkg = require('../package');
+var pkg = require('./package');
 
 /**
 Configure Routes
@@ -30,9 +30,13 @@ function configureRoutes(endpoints, users){
 
   }
 
-  app.get("/info", false,function (req,res) {
-    // var i = {'version'};
-    res.send(pkg);
+  app.get("/info",function (req,res) {
+    var i = {
+      'name':pkg.name,
+      'version':pkg.version,
+      'description':pkg.description
+    };
+    res.send(i);
   });
 }
 
