@@ -5,7 +5,7 @@ Private Module Level Properties
 */
 var app;
 var admin_users;
-var pkg = require('./package');
+var root_pkg = require('../../package');
 
 /**
 Configure Routes
@@ -32,9 +32,11 @@ function configureRoutes(endpoints, users){
 
   app.get("/info",function (req,res) {
     var i = {
-      'name':pkg.name,
-      'version':pkg.version,
-      'description':pkg.description
+      'name':root_pkg.name,
+      'version':root_pkg.version,
+      'description':root_pkg.description,
+      'ezbake':root_pkg.dependencies.ezbake
+
     };
     res.send(i);
   });
