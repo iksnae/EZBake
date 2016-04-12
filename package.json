@@ -1,11 +1,10 @@
 {
   "name": "ezbake",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "simplifies building a web service",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
