@@ -17,9 +17,9 @@ var Server = function() {
   starts the express server with environment variables
   */
   self.start = function(){
-    console.log("EZBake: starting Server");
+    // console.log("EZBake: starting Server");
     app.listen(self.port, self.ipaddress, function() {
-      console.log('EZBake: started at', Date(Date.now() ), self.ipaddress, self.port);
+      // console.log('EZBake: started at', Date(Date.now() ), self.ipaddress, self.port);
     });
   }
 
@@ -28,7 +28,7 @@ var Server = function() {
   setups up the server environment and routing
   */
   self.initialize = function(){
-    console.log("EZBake: initializing Server");
+    // console.log("EZBake: initializing Server");
     app = module.exports = express();
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));

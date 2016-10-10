@@ -13,7 +13,7 @@ dynamically sets up the routing for the app
 loads configuration from provided endpoints
 */
 function configureRoutes(endpoints, users){
-  console.log("EZBake: adding ingredients");
+  // console.log("EZBake: adding ingredients");
   var endpoints = endpoints["endpoints"];
 
   for(var i=0; i<endpoints.length; i++){
@@ -55,18 +55,18 @@ function bindHandler(method, path, isProtected, handler){
 
   if(method === "get") {
     app.get(path, check, require(process.cwd()+handler));
-    console.log("EZBake: route GET handler\t",path,"=>",handler+"() protected:",isProtected);
+    // console.log("EZBake: route GET handler\t",path,"=>",handler+"() protected:",isProtected);
   }else if(method === "post"){
     app.post(path, check, require(process.cwd()+handler));
-    console.log("EZBake: route POST hander\t",path,"=>",handler+"() protected:",isProtected);
+    // console.log("EZBake: route POST hander\t",path,"=>",handler+"() protected:",isProtected);
   }else if(method === "put"){
     app.put(path, check, require(process.cwd()+handler));
-    console.log("EZBake: route PUT hander\t",path,"=>",handler+"() protected:",isProtected);
+    // console.log("EZBake: route PUT hander\t",path,"=>",handler+"() protected:",isProtected);
   }else if(method === "delete"){
     app.delete(path, check, require(process.cwd()+handler));
-    console.log("EZBake: route DELETE hander\t",path,"=>",handler+"() protected:",isProtected);
+    // console.log("EZBake: route DELETE hander\t",path,"=>",handler+"() protected:",isProtected);
   }else{
-    console.log("EZBake: routing failed: unknown HTTP Method:"+method);
+    console.error("EZBake: routing failed: unknown HTTP Method:"+method);
   }
 }
 function skip_check(req, res, next){

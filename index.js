@@ -8,21 +8,21 @@ var EZBake = function(){
   self = this;
 
   self.startServer = function(){
-    console.log("EZBake: popping into the oven");
+    // console.log("EZBake: popping into the oven");
     app.listen(self.port, self.ipaddress, function() {
       var url = self.ipaddress || "http://localhost:";
       var now = new Date();
-      console.log("EZBake: baking... since " + now + "\t@ " + url + self.port);
+      // console.log("EZBake: baking... since " + now + "\t@ " + url + self.port);
     });
   }
 
   self.loadAdminUsers = function(admin_users){
-    console.log("EZBake: adding sou chefs");
+    // console.log("EZBake: adding sou chefs");
     users = admin_users;
   }
 
   self.loadEndpoints = function(endpoints){
-    console.log("EZBake: gathering ingredients");
+    // console.log("EZBake: gathering ingredients");
     app = module.exports = express();
     
     app.use(bodyParser.json());
@@ -33,7 +33,7 @@ var EZBake = function(){
 
     require('./environment.js')(self, app, express);
     require('./routing.js')(app,endpoints, users);
-    console.log("EZBake: mixed ingredients. ready to bake.");
+    // console.log("EZBake: mixed ingredients. ready to bake.");
   }
 }
 
