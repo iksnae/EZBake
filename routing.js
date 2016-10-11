@@ -5,7 +5,7 @@ Private Module Level Properties
 */
 var app;
 var admin_users;
-var root_pkg = require('../../package');
+var root_pkg = require('./package');
 
 /**
 Configure Routes
@@ -55,18 +55,18 @@ function bindHandler(method, path, isProtected, handler){
 
   if(method === "get") {
     app.get(path, check, require(process.cwd()+handler));
-    // console.log("EZBake: route GET handler\t",path,"=>",handler+"() protected:",isProtected);
+    console.log("configuring route GET handler\t",path,"=>",handler);
   }else if(method === "post"){
     app.post(path, check, require(process.cwd()+handler));
-    // console.log("EZBake: route POST hander\t",path,"=>",handler+"() protected:",isProtected);
+    console.log("configuring route POST hander\t",path,"=>",handler);
   }else if(method === "put"){
     app.put(path, check, require(process.cwd()+handler));
-    // console.log("EZBake: route PUT hander\t",path,"=>",handler+"() protected:",isProtected);
+    console.log("configuring route PUT hander\t",path,"=>",handler);
   }else if(method === "delete"){
     app.delete(path, check, require(process.cwd()+handler));
-    // console.log("EZBake: route DELETE hander\t",path,"=>",handler+"() protected:",isProtected);
+    console.log("configuring route DELETE hander\t",path,"=>",handler);
   }else{
-    console.error("EZBake: routing failed: unknown HTTP Method:"+method);
+    console.error("configuring routing failed: unknown HTTP Method:"+method);
   }
 }
 function skip_check(req, res, next){
